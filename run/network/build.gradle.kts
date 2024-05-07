@@ -3,11 +3,10 @@ plugins {
 }
 
 android {
-    namespace = "com.annguyenhoang.database"
+    namespace = "com.annguyenhoang.run.nework"
 }
 
 dependencies {
-    implementation(libs.org.mongodb.bson)
-
     implementation(projects.core.domain)
+    implementation(projects.core.data)
 }

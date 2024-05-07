@@ -1,45 +1,22 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.runique.android.application.compose)
     alias(libs.plugins.mapsplatform.secrets.plugin)
 }
 
 android {
     namespace = "com.annguyenhoang.runique"
-    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.annguyenhoang.runique"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    buildFeatures {
-        compose = true
-    }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.9"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -86,4 +63,20 @@ dependencies {
 
     // Timber
     implementation(libs.timber)
+
+    implementation(projects.core.presentation.designsystem)
+    implementation(projects.core.presentation.ui)
+    implementation(projects.core.domain)
+    implementation(projects.core.data)
+    implementation(projects.core.database)
+
+    implementation(projects.auth.presentation)
+    implementation(projects.auth.domain)
+    implementation(projects.auth.data)
+
+    implementation(projects.run.presentation)
+    implementation(projects.run.domain)
+    implementation(projects.run.data)
+    implementation(projects.run.location)
+    implementation(projects.run.network)
 }
