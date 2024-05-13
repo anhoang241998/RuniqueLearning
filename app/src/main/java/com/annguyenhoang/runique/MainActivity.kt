@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.annguyenhoang.runique.ui.theme.RuniqueTheme
+import com.annguyenhoang.presentation.designsystem.RuniqueTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,10 +19,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RuniqueTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
                     Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        name = "Android"
                     )
                 }
             }
